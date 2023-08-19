@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_19_164138) do
+ActiveRecord::Schema.define(version: 2023_08_19_170723) do
 
   create_table "answers", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2023_08_19_164138) do
     t.integer "user_id", null: false
     t.json "auditable_changes", default: {}, null: false
     t.datetime "created_at"
+    t.string "comment"
     t.index ["auditable_id", "auditable_type"], name: "index_audits_on_auditable_id_and_auditable_type"
     t.index ["auditable_type", "auditable_id"], name: "index_audits_on_auditable"
     t.index ["user_id"], name: "index_audits_on_user_id"
