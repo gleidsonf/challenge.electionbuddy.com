@@ -1,0 +1,39 @@
+<p>
+  <strong>Entity:</strong>
+  <%= @serialized_audit[:auditable_type] %>
+</p>
+
+<p>
+  <strong>Updated By:</strong>
+  <%= @serialized_audit[:user_email] %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @serialized_audit[:created_at] %>
+</p>
+
+<p>
+  <strong>Attribute Changes:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Previous</th>
+        <th>Current</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @serialized_audit[:changes].map do |change| %>
+        <tr>
+          <td><%= change[:attribute] %></td>
+          <td><%= change[:previous] || '_' %></td>
+          <td><%= change[:current] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
+
+<%= link_to 'Back', audits_path %>

@@ -1,0 +1,28 @@
+<h1>Audits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auditable Entity</th>
+      <th>Entity ID</th>
+      <th>Created at</th>
+      <th>Updated by</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @serialized_audits.each do |audit| %>
+      <tr>
+        <td><%= audit[:auditable_type] %></td>
+        <td><%= audit[:auditable_id] %></td>
+        <td><%= audit[:created_at] %></td>
+        <td><%= audit[:user_email] %></td>
+        <td><%= link_to 'Show', audit_path(audit[:id]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Back', root_path %>

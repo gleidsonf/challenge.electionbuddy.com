@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  auditable: one
+  auditable_type: Auditable
+  user: one
+  auditable_changes: 
+
+two:
+  auditable: two
+  auditable_type: Auditable
+  user: two
+  auditable_changes: 
